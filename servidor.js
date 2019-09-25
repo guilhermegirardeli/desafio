@@ -25,8 +25,10 @@ function seleciona (x) {
 app.get('/', function (req, res) {
 	res.send('Hello World')
 })
-app.get('/star-wars-films', function (req, res) { axios.get("https://swapi.co/api/films/").then(function(resposta) {
-	res.send(resposta.data); })})
+app.get('/star-wars-films', function (req, res) { 
+	axios.get("https://swapi.co/api/films/").then(function(resposta) {
+	res.send(resposta.data.results[1]);
+	 })})
 
 app.use(express.static('public'));
 app.listen(3000);
